@@ -1,0 +1,201 @@
+<html>
+
+<head>
+    <title>Food Menu</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="nav-img"> </div>
+        <div class="jumbotron">
+            <h1><b>MENU</b></h1>
+        </div>
+
+        <div class="row" style="display:flex;">
+            <div class="dropdown" id="col1">
+                <label for="cuisine" style="font-size: 18px">Choose a cuisine:</label>
+                <select name="cuisine" id="cuisine" onchange="cuisine(this.value)">
+                    <option value="All">All</option>
+                    <option value="ChineseCombos">Chinese Combos</option>
+                    <option value="ChineseStarter">Chinese Starter</option>
+                    <option value="Salads">Salads</option>
+                    <option value="Oriental">Oriental</option>
+                </select>
+            </div>
+
+            <div class="dropdown" id="col3">
+                <label for="FoodType" style="font-size: 18px">Food Type</label>
+                <select name="foodType" id="foodType" onchange="foodType(this.value)">
+                    <option value="veg">Veg</option>
+                    <option value="nonVeg">Non Veg</option>
+                </select>
+            </div>
+
+            <div class="dropdown" id="col3" style="margin-left: auto;">
+                <label for="Price" style="font-size: 18px">Price Filter:</label>
+                <select name="price" id="price" onchange="sort(this.value)">
+                    <option value="asc">Low to High</option>
+                    <option value="dec">High to low</option>
+                </select>
+            </div>
+        </div>
+        <img src="https://www.ning.com/wp-content/uploads/2019/05/create-food-website.jpg" alt=""
+        style="width: 100%; filter: brightness(0.5);">
+
+        <table class="data">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Category</th>
+                    <th>Food Type</th>
+                    <th>Price</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody id="myData">
+            </tbody>
+        </table>
+
+    
+</body>
+
+<script>
+    var data1;
+    fetch(
+            'https://gist.githubusercontent.com/nitinknolder/e98126e33735531992e7e51bc4a56c02/raw/9cd69cc8c1f188d34751af01f3b219ed526261dc/menu.json'
+        )
+        .then(
+            res => {
+                res.json().then(
+                    data => {
+                        this.data1 = data;
+                        if (data.length > 0) {
+                            var temp = '';
+                            data.forEach((u) => {
+                                temp += '<tr>';
+                                temp += '<td>' + u.name + '</td>';
+                                temp += '<td>' + u.category + '</td>';
+                                temp += '<td>' + u.vegflag + '</td>';
+                                temp += '<td>' + u.price + '</td>';
+                                temp += '<td>' + u.description + '</td>';
+                            })
+                        }
+                    })
+            })
+
+    function foodType(food) {
+        if (food == "veg") {
+            var temp = '';
+            data1.forEach((u) => {
+                if (u.vegflag === "veg") {
+                    temp += '<tr>';
+                    temp += '<td>' + u.name + '</td>';
+                    temp += '<td>' + u.category + '</td>';
+                    temp += '<td>' + u.vegflag + '</td>';
+                    temp += '<td>' + u.price + '</td>';
+                    temp += '<td>' + u.description + '</td>';
+                }
+            })
+            document.getElementById("myData").innerHTML = temp;
+        } else if (food == "nonVeg") {
+            var temp = '';
+            data1.forEach((u) => {
+                if (u.vegflag === "nonveg") {
+                    temp += '<tr>';
+                    temp += '<td>' + u.name + '</td>';
+                    temp += '<td>' + u.category + '</td>';
+                    temp += '<td>' + u.vegflag + '</td>';
+                    temp += '<td>' + u.price + '</td>';
+                    temp += '<td>' + u.description + '</td>';
+                }
+            })
+            document.getElementById("myData").innerHTML = temp;
+        }
+    }
+
+    function cuisine(category) {
+        if (category == "ChineseCombos") {
+            var temp = '';
+            data1.forEach((u) => {
+                if (u.category === "Chinese Combos") {
+                    temp += '<tr>';
+                    temp += '<td>' + u.name + '</td>';
+                    temp += '<td>' + u.category + '</td>';
+                    temp += '<td>' + u.vegflag + '</td>';
+                    temp += '<td>' + u.price + '</td>';
+                    temp += '<td>' + u.description + '</td>';
+                }
+            })
+            document.getElementById("myData").innerHTML = temp;
+        } else if (category == "ChineseStarter") {
+            var temp = '';
+            data1.forEach((u) => {
+                if (u.category === "Chinese Starter") {
+                    temp += '<tr>';
+                    temp += '<td>' + u.name + '</td>';
+                    temp += '<td>' + u.category + '</td>';
+                    temp += '<td>' + u.vegflag + '</td>';
+                    temp += '<td>' + u.price + '</td>';
+                    temp += '<td>' + u.description + '</td>';
+                }
+            })
+            document.getElementById("myData").innerHTML = temp;
+        } else if (category == "Salads") {
+            var temp = '';
+            data1.forEach((u) => {
+                if (u.category === "Salads") {
+                    temp += '<tr>';
+                    temp += '<td>' + u.name + '</td>';
+                    temp += '<td>' + u.category + '</td>';
+                    temp += '<td>' + u.vegflag + '</td>';
+                    temp += '<td>' + u.price + '</td>';
+                    temp += '<td>' + u.description + '</td>';
+                }
+            })
+            document.getElementById("myData").innerHTML = temp;
+        } else if (category == "Oriental") {
+            var temp = '';
+            data1.forEach((u) => {
+                if (u.category === "Oriental") {
+                    temp += '<tr>';
+                    temp += '<td>' + u.name + '</td>';
+                    temp += '<td>' + u.category + '</td>';
+                    temp += '<td>' + u.vegflag + '</td>';
+                    temp += '<td>' + u.price + '</td>';
+                    temp += '<td>' + u.description + '</td>';
+                }
+            })
+            document.getElementById("myData").innerHTML = temp;
+        }
+    }
+
+    function sort(type) {
+        if (type == 'asc') {
+            data1 = data1.sort(function (a, b) {
+                return compare(a.price, b.price, true)
+            })
+        }
+        if (type == 'dec') {
+            data1 = data1.sort(function (a, b) {
+                return compare(a.price, b.price, false)
+            })
+        }
+        var temp = '';
+        data1.forEach((u) => {
+            temp += '<tr>';
+            temp += '<td>' + u.name + '</td>';
+            temp += '<td>' + u.category + '</td>';
+            temp += '<td>' + u.vegflag + '</td>';
+            temp += '<td>' + u.price + '</td>';
+            temp += '<td>' + u.description + '</td>';
+        })
+        document.getElementById("myData").innerHTML = temp;
+    }
+
+    function compare(a, b, isAsc) {
+        return ((a || '') < (b || '') ? -1 : 1) * (isAsc ? 1 : -1);
+    }
+</script>
+
+
+</html>

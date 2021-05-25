@@ -1,0 +1,104 @@
+html {
+  scroll-behavior: smooth;
+}
+
+body{
+  margin:0;
+}
+
+h1{
+  font-size: 100px !important;
+  text-shadow: 6px 5px #474721;
+}
+
+.button {
+  font-family: "Roboto", sans-serif;
+}
+
+.nav-img {
+  padding: 1ch 2ch;
+  background-image: url("https://image.shutterstock.com/image-photo/frame-organic-food-fresh-raw-260nw-506516848.jpg");
+  filter: brightness(0.5);
+  height: 33%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  scroll-behavior: smooth;
+}
+
+.jumbotron {
+  position: absolute;
+  top: 15%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+  padding: 50px 25px;
+  font-family: Montserrat, sans-serif;
+}
+
+#col3 {
+  width: 8%;
+}
+
+#col1 {
+  width: 12%;
+}
+
+.row {
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+  width: 98%;
+}
+
+.data {
+  position: absolute;
+  top: 85%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+}
+
+.foodType{
+  width: 17%;
+}
+
+input[type='radio']:after {
+  width: 10px;
+  height: 10px;
+  border-radius: 15px;
+  top: -2px;
+  left: -1px;
+  position: relative;
+  background-color: #d1d3d1;
+  content: '';
+  display: inline-block;
+  visibility: visible;
+  border: 2px solid white;
+}
+
+input[type='radio']:checked:after {
+  width: 12px;
+  height: 12px;
+  border-radius: 12px;
+  top: -2px;
+  left: -1px;
+  position: relative;
+  background-color: #348f0a;
+  content: '';
+  display: inline-block;
+  visibility: visible;
+  border: 2px solid white;
+}
+
+table, th {
+  font-size: 18px;
+  /* font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; */
+  margin-bottom: 2%;
+}
+
+table, th, td {
+  padding: 4px;
+  font-family: cursive;
+}

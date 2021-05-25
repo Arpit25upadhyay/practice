@@ -1,0 +1,13 @@
+First, we create a small Menu application where you will call this API: https://gist.githubusercontent.com/nitinknolder/e98126e33735531992e7e51bc4a56c02/raw/9cd69cc8c1f188d34751af01f3b219ed526261dc/menu.json
+
+Where you have to design the attractive UI according to your choice but don't use any 3rd party application like(Bootstrap) to show the information.
+
+Functionality: 
+
+1: Implement a filter according to the category and whatever category is selected then it should display the record for the selected category
+   and if a user clicks on ALL then it will show all the record. (By default it will show all the records initially.)
+
+2: Implement the filter which sorted the records according to their price (Low-high or High to low).
+
+3: Implement the filter which show the records as per veg or non veg dish. eg: If user selects veg it should show the veg dishes and vice vers
+   a for non veg.
